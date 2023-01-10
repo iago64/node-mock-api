@@ -1,0 +1,256 @@
+openapi: 3.0.2
+info:
+  title: document
+  description: A brand new API with no content.  Go nuts!
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /document:
+    get:
+      operationId: documentGET
+      parameters:
+      - name: numero
+        in: header
+        description: ""
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-body'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+      x-swagger-router-controller: Default
+    put:
+      operationId: documentPUT
+      parameters:
+      - name: numero
+        in: header
+        description: ""
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-body'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+      x-swagger-router-controller: Default
+    post:
+      operationId: documentPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-body'
+            examples:
+              example:
+                value:
+                  document:
+                    numero: 24
+                    nombre: some text
+                    apellido: some text
+                    fechaNacimiento: 2018-01-17
+                    sexo: some text
+                    nacionalidad: some text
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-body'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+      x-swagger-router-controller: Default
+    delete:
+      operationId: documentDELETE
+      parameters:
+      - name: numero
+        in: header
+        description: ""
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-body'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+      x-swagger-router-controller: Default
+components:
+  schemas:
+    request-body:
+      title: Root Type for request-body
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/requestbody_document'
+      description: ""
+      example:
+        document:
+          numero: 123
+          nombre: Christian
+          apellido: Ortiz
+          fechaNacimiento: 2000-01-27
+          sexo: Masculino
+          nacionalidad: Argentina
+    response-body:
+      title: Root Type for response-body
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/requestbody_document'
+        description:
+          type: string
+      description: ""
+      example:
+        document:
+          numero: 123
+          nombre: Christian
+          apellido: Ortiz
+          fechaNacimiento: 2000-01-27
+          sexo: Masculino
+          nacionalidad: Argentina
+        description: Documento creado exitosamente.
+    requestbody_document:
+      type: object
+      properties:
+        numero:
+          type: integer
+          format: int32
+        nombre:
+          type: string
+        apellido:
+          type: string
+        fechaNacimiento:
+          type: string
+          format: date
+        sexo:
+          type: string
+        nacionalidad:
+          type: string
